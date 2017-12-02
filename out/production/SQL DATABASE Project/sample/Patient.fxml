@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="Patient_History" maxHeight="10000.0" maxWidth="10000.0" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Button fx:id="Patientadd" layoutX="23.0" layoutY="309.0" mnemonicParsing="false" onAction="#addPatient" text="ADD" />
+      <TextField fx:id="patient_sex" layoutX="23.0" layoutY="224.0" onAction="#addPatient" promptText="Sex" />
+      <TextField fx:id="patient_birth" layoutX="23.0" layoutY="189.0" onAction="#addPatient" promptText="Date of Birth" />
+      <TextField fx:id="patient_name" layoutX="23.0" layoutY="154.0" onAction="#addPatient" promptText="Name" />
+      <TextField fx:id="hicno" layoutX="23.0" layoutY="119.0" onAction="#addPatient" promptText="HICNO" />
+       <TextField fx:id="hospital_ccn" layoutX="23.0" layoutY="260.0" onAction="#addPatient" promptText="Hospital CCN" />
+       <Label layoutX="229.0" layoutY="21.0" text="CLABSIS Patient Record">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+      <TableView fx:id="tablePatient" layoutX="204.0" layoutY="85.0" prefHeight="278.0" prefWidth="573.0">
+        <columns>
+          <TableColumn fx:id="columnHICNO" prefWidth="111.0" text="HICNO" />
+            <TableColumn fx:id="columnNAME" prefWidth="123.0" text="Name" />
+            <TableColumn fx:id="columnDOB" prefWidth="124.0" text="DOB" />
+            <TableColumn fx:id="columnSEX" prefWidth="70.0" text="Sex" />
+            <TableColumn fx:id="columnCCN_ID" prefWidth="143.0" text="Hospital CCN" />
+        </columns>
+      </TableView>
+
+      <Label layoutX="23.0" layoutY="85.0" text="Add New Patient:" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Accordion layoutX="31.0" layoutY="402.0" />
+      <Button fx:id="medicalHistory" layoutX="635.0" layoutY="389.0" mnemonicParsing="false" onAction="#MedicalHistory" text="Add Medical History" />
+      <MenuBar fx:id="menu" layoutX="0.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="1200.0">
+        <menus>
+          <Menu fx:id="Opener" mnemonicParsing="false" text="Home">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Home" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" onAction="#menuClicks" text="Record">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Record" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Analysis">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Analysis" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button layoutX="77.0" layoutY="309.0" mnemonicParsing="false" onAction="#updatePatient" text="Button" />
+   </children>
+</Pane>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="Encounter_Record" maxHeight="10000.0" maxWidth="10000.0" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RecordController">
+   <children>
+      <MenuBar fx:id="menu" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="1200.0">
+         <menus>
+            <Menu fx:id="Opener" mnemonicParsing="false" onAction="#menuClicks" text="Home">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Home" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Record">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Record" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Analysis">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Analysis" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button layoutX="161.0" layoutY="80.0" mnemonicParsing="false" onAction="#encounterClick" text="Encounter" />
+      <Button layoutX="66.0" layoutY="388.0" mnemonicParsing="false" text="Procedure" />
+      <Button layoutX="74.0" layoutY="468.0" mnemonicParsing="false" text="Infection" />
+      <Label layoutX="21.0" layoutY="85.0" text="Enter/Modify Patient:" />
+      <Label layoutX="52.0" layoutY="356.0" text="Enter/Modify Patient:" />
+      <TableView  fx:id="tableEncounter" layoutX="21.0" layoutY="136.0" prefHeight="200.0" prefWidth="746.0">
+        <columns>
+          <TableColumn fx:id="columnEncounter" prefWidth="75.0" text="Encounter ID" />
+          <TableColumn fx:id="columnHICNO" prefWidth="75.0" text="HICNO" />
+            <TableColumn fx:id="columnPrimary" minWidth="0.0" prefWidth="75.0" text="Primary Physician" />
+            <TableColumn fx:id="columnDischarge" prefWidth="75.0" text="Discharge Status" />
+            <TableColumn fx:id="columnDischargeDate" prefWidth="89.0" text="Discharge Date" />
+            <TableColumn fx:id="columnAdmission" prefWidth="98.0" text="Admission Date" />
+            <TableColumn fx:id="columnProcedure" prefWidth="61.0" text="Procedure" />
+            <TableColumn fx:id="columnDIAG" prefWidth="81.0" text="DIAG" />
+            <TableColumn fx:id="columnAdmitted" prefWidth="116.0" text="Admitted" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>

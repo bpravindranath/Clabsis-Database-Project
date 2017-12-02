@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="csmith131db@triton.towson.edu">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="csmith131db">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <table id="4" parent="2" name="Encounter"/>
+    <table id="5" parent="2" name="Hospital"/>
+    <table id="6" parent="2" name="Infection"/>
+    <table id="7" parent="2" name="Medical_History"/>
+    <table id="8" parent="2" name="Patient"/>
+    <table id="9" parent="2" name="Procedure"/>
+    <column id="10" parent="4" name="Encounter_ID">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="11" parent="4" name="HICNO">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="12" parent="4" name="Primary_Physician">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="13" parent="4" name="Discharge_Status">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="14" parent="4" name="Discharge_DTG">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="15" parent="4" name="Admission_DTG">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="16" parent="4" name="PROC_Codes">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="17" parent="4" name="DIAG_POA_Codes">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="18" parent="4" name="Admitted">
+      <Position>9</Position>
+      <DataType>varchar(1)|0</DataType>
+    </column>
+    <index id="19" parent="4" name="HICNIDx">
+      <ColNames>HICNO</ColNames>
+    </index>
+    <key id="20" parent="4" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Encounter_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="21" parent="4" name="HIC_ID">
+      <ColNames>HICNO</ColNames>
+      <RefSchemaName>csmith131db</RefSchemaName>
+      <RefTableName>Patient</RefTableName>
+      <RefColNames>HICNO</RefColNames>
+    </foreign-key>
+    <column id="22" parent="5" name="CCN">
+      <Position>1</Position>
+      <DataType>varchar(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="5" name="Hospital_Name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="24" parent="5" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CCN</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="6" name="Infection_Type">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="26" parent="6" name="Diagnosis_DTG">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="27" parent="6" name="E_ID">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="28" parent="6" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>E_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="6" name="EID">
+      <ColNames>E_ID</ColNames>
+      <RefSchemaName>csmith131db</RefSchemaName>
+      <RefTableName>Encounter</RefTableName>
+      <RefColNames>Encounter_ID</RefColNames>
+    </foreign-key>
+    <column id="30" parent="7" name="HICID">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="7" name="ImmunoSuppressive_Medications">
+      <Position>2</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="32" parent="7" name="Antibiotics">
+      <Position>3</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="33" parent="7" name="MRSA">
+      <Position>4</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="34" parent="7" name="COPD">
+      <Position>5</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="35" parent="7" name="HIV">
+      <Position>6</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="36" parent="7" name="Cancer">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="37" parent="7" name="Tuberculosis">
+      <Position>8</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="38" parent="7" name="Diabetes">
+      <Position>9</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="39" parent="7" name="Pregnant">
+      <Position>10</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="40" parent="7" name="Obesity">
+      <Position>11</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="41" parent="7" name="A1C_Level_Low">
+      <Position>12</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <key id="42" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>HICID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="43" parent="7" name="HICNOID">
+      <ColNames>HICID</ColNames>
+      <RefSchemaName>csmith131db</RefSchemaName>
+      <RefTableName>Patient</RefTableName>
+      <RefColNames>HICNO</RefColNames>
+    </foreign-key>
+    <column id="44" parent="8" name="HICNO">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="8" name="NAME">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="46" parent="8" name="DOB">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="47" parent="8" name="SEX">
+      <Position>4</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="48" parent="8" name="CCN_ID">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <index id="49" parent="8" name="CCIDx">
+      <ColNames>CCN_ID</ColNames>
+    </index>
+    <key id="50" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>HICNO</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="51" parent="8" name="CCNID">
+      <ColNames>CCN_ID</ColNames>
+      <RefSchemaName>csmith131db</RefSchemaName>
+      <RefTableName>Hospital</RefTableName>
+      <RefColNames>CCN</RefColNames>
+    </foreign-key>
+    <column id="52" parent="9" name="EN_ID">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="9" name="Insertion_Site">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="54" parent="9" name="Inserting_Provider">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="55" parent="9" name="Insertion_Circumstance">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="56" parent="9" name="Catheter_Type">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="57" parent="9" name="Procedure_List_Follow">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="58" parent="9" name="Patient_Location">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="59" parent="9" name="DTG_Inserted">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="9" name="DTG_Removed">
+      <Position>9</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="61" parent="9" name="en_idx">
+      <ColNames>EN_ID</ColNames>
+    </index>
+    <key id="62" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>EN_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="63" parent="9" name="ENID">
+      <ColNames>EN_ID</ColNames>
+      <RefSchemaName>csmith131db</RefSchemaName>
+      <RefTableName>Encounter</RefTableName>
+      <RefColNames>Encounter_ID</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
