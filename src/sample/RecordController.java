@@ -22,8 +22,20 @@ import java.util.ResourceBundle;
 public class RecordController implements Initializable {
     @FXML
     public Pane Encounter_Record;
+
+    //Variables for Encounter
+    @FXML
     public TextField HicnoNumber, EncounterID, PrimaryPhysician,DischargeStatus,ProcedureCode,DiagnosisCodes,Admitted;
+    @FXML
     public DatePicker AdmissionDate,DischargeDate;
+
+
+    //Variables For Procedure
+    @FXML
+    public TextField ProcedureEncounterID,InsertionSite,InsertingProvider,ProcedureList,PatientLocation,InsertionCircumstances,CatheterType;
+
+    @FXML
+    public DatePicker RemovedDate,InsertionDate;
 
     @FXML
     public TableView<Encounter> tableEncounter;
@@ -161,8 +173,6 @@ public class RecordController implements Initializable {
 
     }
 
-
-
     public void encounterADD(ActionEvent event){
 
         if(EncounterID.getText().isEmpty() && HicnoNumber.getText().isEmpty() && PrimaryPhysician.getText().isEmpty()
@@ -203,7 +213,7 @@ public class RecordController implements Initializable {
 
                 conn.close();
 
-//                Load Encounter Table
+                loadEncounter();
 
             } catch (Exception e) {
                 System.err.print(e);
@@ -211,7 +221,6 @@ public class RecordController implements Initializable {
         }
 
     }
-
 
     public void encounterUpdate(ActionEvent event){
 
@@ -254,6 +263,126 @@ public class RecordController implements Initializable {
 
                 conn.close();
 
+                loadEncounter();
+
+            } catch (Exception e) {
+                System.err.print(e);
+            }
+
+        }
+
+    }
+
+    public void procedureClick(ActionEvent event){
+
+        try{
+
+            fxmlLoader = new FXMLLoader(getClass().getResource("Procedure.fxml"));
+            Parent root = (Parent)fxmlLoader.load();
+            window = new Stage();
+
+            window.setTitle("Procedure");
+            window.setScene(new Scene(root));
+            window.show();
+
+
+
+        }catch (Exception e){
+            System.err.print(e);
+        }
+
+    }
+
+    public void procedureAdd(ActionEvent event){
+
+        if(ProcedureEncounterID.getText().isEmpty() && InsertionSite.getText().isEmpty() && InsertingProvider.getText().isEmpty()
+                && InsertionCircumstances.getText().isEmpty() && CatheterType.getText().isEmpty()
+                && ProcedureList.getText().isEmpty() && PatientLocation.getText().isEmpty() && InsertionDate.getEditor().getText().isEmpty()
+                && RemovedDate.getEditor().getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Add Procedure Error...");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Make sure all fields are filled in and Insertion ID is unique");
+            alert.showAndWait();
+
+        } else {
+
+            try {
+
+
+                Connection conn = dc.Connect();
+
+                String query = "INSERT INTO `Procedure` VALUES (?,?,?,?,?,?,?,?,?)";
+
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setString(1, ProcedureEncounterID.getText());
+                preparedStatement.setString(2, InsertionSite.getText());
+                preparedStatement.setString(3, InsertingProvider.getText());
+                preparedStatement.setString(4, InsertionCircumstances.getText());
+                preparedStatement.setString(5, CatheterType.getText());
+                preparedStatement.setString(6, ProcedureList.getText());
+                preparedStatement.setString(7, PatientLocation.getText());
+                preparedStatement.setString(8, ((TextField) InsertionDate.getEditor()).getText());
+                preparedStatement.setString(9, ((TextField) RemovedDate.getEditor()).getText());
+
+
+
+                preparedStatement.execute();
+
+                conn.close();
+
+
+
+            } catch (Exception e) {
+                System.err.print(e);
+            }
+        }
+
+    }
+
+    public void procedureUpdate(ActionEvent event){
+
+        if(ProcedureEncounterID.getText().isEmpty() && InsertionSite.getText().isEmpty() && InsertingProvider.getText().isEmpty()
+                && InsertionCircumstances.getText().isEmpty() && CatheterType.getText().isEmpty()
+                && ProcedureList.getText().isEmpty() && PatientLocation.getText().isEmpty() && InsertionDate.getEditor().getText().isEmpty()
+                && RemovedDate.getEditor().getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Update Procedure Error...");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Make sure all fields are filled in and Insertion ID is unique");
+            alert.showAndWait();
+
+        } else {
+
+
+            try {
+
+
+                Connection conn = dc.Connect();
+
+                String query = "UPDATE `Procedure` SET Insertion_Site  = ?, Inserting_Provider = ?," +
+                        "Insertion_Circumstance = ?, Catheter_Type = ?, Procedure_List_Follow = ?, Patient_Location = ?, DTG_Inserted =?, DTG_Removed =?  WHERE EN_ID = ?";
+
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+
+                preparedStatement.setString(1, InsertionSite.getText());
+                preparedStatement.setString(2, InsertingProvider.getText());
+                preparedStatement.setString(3, InsertionCircumstances.getText());
+                preparedStatement.setString(4, CatheterType.getText());
+                preparedStatement.setString(5, ProcedureList.getText());
+                preparedStatement.setString(6, PatientLocation.getText());
+                preparedStatement.setString(7, ((TextField) InsertionDate.getEditor()).getText());
+                preparedStatement.setString(8, ((TextField) RemovedDate.getEditor()).getText());
+                preparedStatement.setString(9, ProcedureEncounterID.getText());
+
+
+                preparedStatement.executeUpdate();
+
+                conn.close();
+
                 //LoadPatientData();
 
             } catch (Exception e) {
@@ -263,6 +392,9 @@ public class RecordController implements Initializable {
         }
 
     }
+
+
+
 
 
 }

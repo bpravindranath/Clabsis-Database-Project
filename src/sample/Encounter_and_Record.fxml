@@ -31,11 +31,11 @@
          </menus>
       </MenuBar>
       <Button layoutX="161.0" layoutY="80.0" mnemonicParsing="false" onAction="#encounterClick" text="Encounter" />
-      <Button layoutX="66.0" layoutY="388.0" mnemonicParsing="false" text="Procedure" />
-      <Button layoutX="74.0" layoutY="468.0" mnemonicParsing="false" text="Infection" />
+      <Button layoutX="167.0" layoutY="346.0" mnemonicParsing="false" text="Procedure" onAction="#procedureClick"/>
+      <Button layoutX="329.0" layoutY="346.0" mnemonicParsing="false" text="Infection" />
       <Label layoutX="21.0" layoutY="85.0" text="Enter/Modify Patient:" />
-      <Label layoutX="52.0" layoutY="356.0" text="Enter/Modify Patient:" />
-      <TableView  fx:id="tableEncounter" layoutX="21.0" layoutY="136.0" prefHeight="200.0" prefWidth="746.0">
+      <Label layoutX="21.0" layoutY="351.0" text="Enter/Modify Patient:" />
+      <TableView fx:id="tableEncounter" layoutX="21.0" layoutY="136.0" prefHeight="200.0" prefWidth="746.0">
         <columns>
             <TableColumn fx:id="columnEncounter" prefWidth="75.0" text="Encounter ID" />
             <TableColumn fx:id="columnHICNO" prefWidth="75.0" text="HICNO" />
@@ -48,5 +48,6 @@
             <TableColumn fx:id="columnAdmitted" prefWidth="116.0" text="Admitted" />
         </columns>
       </TableView>
+      <Label layoutX="266.0" layoutY="351.0" text="and/or" />
    </children>
 </Pane>

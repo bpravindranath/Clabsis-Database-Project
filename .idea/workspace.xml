@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Infection.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Procedure.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SQL DATABASE Project/sample/RecordController.class" afterPath="$PROJECT_DIR$/out/production/SQL DATABASE Project/sample/RecordController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Encounter.java" afterPath="$PROJECT_DIR$/src/sample/Encounter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SQL DATABASE Project/sample/Encounter_and_Record.fxml" afterPath="$PROJECT_DIR$/out/production/SQL DATABASE Project/sample/Encounter_and_Record.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Encounter_and_Record.fxml" afterPath="$PROJECT_DIR$/src/sample/Encounter_and_Record.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/RecordController.java" afterPath="$PROJECT_DIR$/src/sample/RecordController.java" />
     </list>
@@ -48,7 +50,7 @@
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="csmith131db@triton.towson.edu" type="e3449647:DbNodeDescriptor" />
         <item name="csmith131db" type="e3449647:DbNodeDescriptor" />
-        <item name="Encounter" type="e3449647:DbNodeDescriptor" />
+        <item name="Infection" type="e3449647:DbNodeDescriptor" />
       </path>
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
@@ -105,10 +107,11 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-944">
-              <caret line="39" column="29" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="29" />
+            <state relative-caret-position="-978">
+              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#LoadPatientData#0;class#Controller#0" expanded="false" />
                 <marker date="1512183549436" expanded="true" signature="2348:2381" ph="SELECT * FRO... Patient" />
                 <marker date="1512183549436" expanded="true" signature="3998:4036" ph="INSERT INTO Patient... " />
                 <marker date="1512183549436" expanded="true" signature="5289:5362" ph="UPDATE Patie... " />
@@ -121,8 +124,8 @@
       <file leaf-file-name="Encounter_and_Record.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Encounter_and_Record.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="58" lean-forward="true" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+            <state relative-caret-position="4">
+              <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -131,79 +134,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Patient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Patient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Encounter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Encounter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="52" column="21" lean-forward="false" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3000#3001#0" expanded="true" />
-                <element signature="e#3035#3036#0" expanded="true" />
-                <element signature="e#3080#3081#0" expanded="true" />
-                <element signature="e#3108#3109#0" expanded="true" />
-                <element signature="e#3157#3158#0" expanded="true" />
-                <element signature="e#3197#3198#0" expanded="true" />
-                <element signature="e#3252#3253#0" expanded="true" />
-                <element signature="e#3291#3292#0" expanded="true" />
-                <element signature="e#3344#3345#0" expanded="true" />
-                <element signature="e#3380#3381#0" expanded="true" />
-                <element signature="e#3433#3434#0" expanded="true" />
-                <element signature="e#3469#3470#0" expanded="true" />
-                <element signature="e#3513#3514#0" expanded="true" />
-                <element signature="e#3546#3547#0" expanded="true" />
-                <element signature="e#3590#3591#0" expanded="true" />
-                <element signature="e#3627#3628#0" expanded="true" />
-                <element signature="e#3675#3676#0" expanded="true" />
-                <element signature="e#3706#3707#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RecordController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/RecordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="39" />
+            <state relative-caret-position="243">
+              <caret line="222" column="5" lean-forward="true" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1512243379810" expanded="true" signature="2088:2123" ph="SELECT * FRO... Encounter" />
-                <marker date="1512243379810" expanded="true" signature="5603:5651" ph="INSERT INTO Patient... " />
-                <marker date="1512243379810" expanded="true" signature="7573:7611" ph="UPDATE Encou... " />
-                <marker date="1512243379810" expanded="true" signature="7573:7612" ph="UPDATE Encou... " />
-                <marker date="1512243379810" expanded="true" signature="7573:7787" ph="UPDATE Encou... " />
+                <element signature="method#encounterClick#0;class#RecordController#0" expanded="false" />
+                <element signature="method#encounterADD#0;class#RecordController#0" expanded="false" />
+                <element signature="method#encounterUpdate#0;class#RecordController#0" expanded="false" />
+                <element signature="method#procedureClick#0;class#RecordController#0" expanded="false" />
+                <element signature="method#procedureAdd#0;class#RecordController#0" expanded="false" />
+                <element signature="method#procedureUpdate#0;class#RecordController#0" expanded="false" />
+                <marker date="1512249098727" expanded="true" signature="2382:2417" ph="SELECT * FRO... Encounter" />
+                <marker date="1512249098727" expanded="true" signature="5895:5943" ph="INSERT INTO Patient... " />
+                <marker date="1512249098727" expanded="true" signature="7858:7896" ph="UPDATE Encou... " />
+                <marker date="1512249098727" expanded="true" signature="7858:7897" ph="UPDATE Encou... " />
+                <marker date="1512249098727" expanded="true" signature="7858:8072" ph="UPDATE Encou... " />
+                <marker date="1512249098727" expanded="true" signature="10427:10477" ph="INSERT INTO Encounter... " />
+                <marker date="1512249098727" expanded="true" signature="12387:12627" ph="UPDATE Encou... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Encounter" pinned="false" current-in-tab="false">
-        <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Encounter">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Patient.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Patient.fxml">
+      <file leaf-file-name="Infection.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/Infection.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="42" />
+            <state relative-caret-position="150">
+              <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -217,8 +177,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -261,9 +221,12 @@
         <option value="$PROJECT_DIR$/src/sample/Encounter.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/Patient.java" />
-        <option value="$PROJECT_DIR$/src/sample/Encounter_and_Record.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/RecordController.java" />
         <option value="$PROJECT_DIR$/src/sample/Encounter.java" />
+        <option value="$PROJECT_DIR$/src/sample/Encounter_and_Record.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Procedure.fxml" />
+        <option value="/MySQL Fragment (RecordController.java:10432).sql" />
+        <option value="$PROJECT_DIR$/src/sample/RecordController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Infection.fxml" />
       </list>
     </option>
   </component>
@@ -275,8 +238,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1361" />
-    <option name="y" value="23" />
+    <option name="x" value="1345" />
+    <option name="y" value="68" />
     <option name="width" value="1280" />
     <option name="height" value="749" />
   </component>
@@ -497,15 +460,15 @@
       <workItem from="1511900773769" duration="4719000" />
       <workItem from="1511981150445" duration="13485000" />
       <workItem from="1512068498121" duration="21372000" />
-      <workItem from="1512240055938" duration="3240000" />
+      <workItem from="1512240055938" duration="6900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79355000" />
+    <option name="totallyTimeSpent" value="83015000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1361" y="23" width="1280" height="749" extended-state="0" />
+    <frame x="1345" y="68" width="1280" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -516,13 +479,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23380727" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23380727" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15105008" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24717286" sideWeight="0.49261993" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1631664" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18174475" sideWeight="0.49261993" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -605,27 +568,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Patient.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="54" lean-forward="false" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Medical_History.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -642,7 +584,7 @@
         <state relative-caret-position="150">
           <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -677,6 +619,7 @@
           <caret line="180" column="68" lean-forward="false" selection-start-line="180" selection-start-column="68" selection-end-line="180" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LoadPatientData#0;class#Controller#0" expanded="false" />
             <marker date="1512183549436" expanded="true" signature="2348:2381" ph="SELECT * FRO... Patient" />
             <marker date="1512183549436" expanded="true" signature="3998:4036" ph="INSERT INTO Patient... " />
             <marker date="1512183549436" expanded="true" signature="5289:5362" ph="UPDATE Patie... " />
@@ -712,6 +655,7 @@
           <caret line="143" column="30" lean-forward="false" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LoadPatientData#0;class#Controller#0" expanded="false" />
             <marker date="1512183549436" expanded="true" signature="2348:2381" ph="SELECT * FRO... Patient" />
             <marker date="1512183549436" expanded="true" signature="3998:4036" ph="INSERT INTO Patient... " />
             <marker date="1512183549436" expanded="true" signature="5289:5362" ph="UPDATE Patie... " />
@@ -725,7 +669,7 @@
         <state relative-caret-position="150">
           <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -788,6 +732,7 @@
           <caret line="108" column="56" lean-forward="false" selection-start-line="108" selection-start-column="56" selection-end-line="108" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LoadPatientData#0;class#Controller#0" expanded="false" />
             <marker date="1512183549436" expanded="true" signature="2348:2381" ph="SELECT * FRO... Patient" />
             <marker date="1512183549436" expanded="true" signature="3998:4036" ph="INSERT INTO Patient... " />
             <marker date="1512183549436" expanded="true" signature="5289:5362" ph="UPDATE Patie... " />
@@ -812,6 +757,7 @@
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LoadPatientData#0;class#Controller#0" expanded="false" />
             <marker date="1512183549436" expanded="true" signature="2348:2381" ph="SELECT * FRO... Patient" />
             <marker date="1512183549436" expanded="true" signature="3998:4036" ph="INSERT INTO Patient... " />
             <marker date="1512183549436" expanded="true" signature="5289:5362" ph="UPDATE Patie... " />
@@ -858,6 +804,7 @@
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LoadPatientData#0;class#Controller#0" expanded="false" />
             <marker date="1512183549436" expanded="true" signature="2348:2381" ph="SELECT * FRO... Patient" />
             <marker date="1512183549436" expanded="true" signature="3998:4036" ph="INSERT INTO Patient... " />
             <marker date="1512183549436" expanded="true" signature="5289:5362" ph="UPDATE Patie... " />
@@ -940,32 +887,10 @@
     <entry file="file://$PROJECT_DIR$/src/sample/Alert_Encounter.fxml" />
     <entry file="das://table:/5b1be2bf/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Hospital" />
     <entry file="das://table:/5b1be2bf/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Encounter" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Encounter.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Medical_History.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
           <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Patient.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -978,34 +903,6 @@
         <state relative-caret-position="153">
           <caret line="56" column="22" lean-forward="false" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Encounter_and_Record.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="58" lean-forward="true" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Encounter">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Patient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,39 +927,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-944">
-          <caret line="39" column="29" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="29" />
+        <state relative-caret-position="134">
+          <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512183549436" expanded="true" signature="2348:2381" ph="SELECT * FRO... Patient" />
-            <marker date="1512183549436" expanded="true" signature="3998:4036" ph="INSERT INTO Patient... " />
-            <marker date="1512183549436" expanded="true" signature="5289:5362" ph="UPDATE Patie... " />
-            <marker date="1512183549436" expanded="true" signature="7184:7244" ph="INSERT INTO Medical_History... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/RecordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1512243379810" expanded="true" signature="2088:2123" ph="SELECT * FRO... Encounter" />
-            <marker date="1512243379810" expanded="true" signature="5603:5651" ph="INSERT INTO Patient... " />
-            <marker date="1512243379810" expanded="true" signature="7573:7611" ph="UPDATE Encou... " />
-            <marker date="1512243379810" expanded="true" signature="7573:7612" ph="UPDATE Encou... " />
-            <marker date="1512243379810" expanded="true" signature="7573:7787" ph="UPDATE Encou... " />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Encounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="52" column="21" lean-forward="false" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+        <state relative-caret-position="223">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3000#3001#0" expanded="true" />
@@ -1085,6 +963,106 @@
             <element signature="e#3706#3707#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Encounter_and_Record.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Encounter.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="23" column="49" lean-forward="true" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Patient.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Encounter">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Procedure.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-978">
+          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#LoadPatientData#0;class#Controller#0" expanded="false" />
+            <marker date="1512183549436" expanded="true" signature="2348:2381" ph="SELECT * FRO... Patient" />
+            <marker date="1512183549436" expanded="true" signature="3998:4036" ph="INSERT INTO Patient... " />
+            <marker date="1512183549436" expanded="true" signature="5289:5362" ph="UPDATE Patie... " />
+            <marker date="1512183549436" expanded="true" signature="7184:7244" ph="INSERT INTO Medical_History... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/RecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="222" column="5" lean-forward="true" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#encounterClick#0;class#RecordController#0" expanded="false" />
+            <element signature="method#encounterADD#0;class#RecordController#0" expanded="false" />
+            <element signature="method#encounterUpdate#0;class#RecordController#0" expanded="false" />
+            <element signature="method#procedureClick#0;class#RecordController#0" expanded="false" />
+            <element signature="method#procedureAdd#0;class#RecordController#0" expanded="false" />
+            <element signature="method#procedureUpdate#0;class#RecordController#0" expanded="false" />
+            <marker date="1512249098727" expanded="true" signature="2382:2417" ph="SELECT * FRO... Encounter" />
+            <marker date="1512249098727" expanded="true" signature="5895:5943" ph="INSERT INTO Patient... " />
+            <marker date="1512249098727" expanded="true" signature="7858:7896" ph="UPDATE Encou... " />
+            <marker date="1512249098727" expanded="true" signature="7858:7897" ph="UPDATE Encou... " />
+            <marker date="1512249098727" expanded="true" signature="7858:8072" ph="UPDATE Encou... " />
+            <marker date="1512249098727" expanded="true" signature="10427:10477" ph="INSERT INTO Encounter... " />
+            <marker date="1512249098727" expanded="true" signature="12387:12627" ph="UPDATE Encou... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Infection.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
   </component>
