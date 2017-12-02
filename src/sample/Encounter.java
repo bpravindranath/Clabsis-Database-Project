@@ -40,21 +40,21 @@ public class Encounter   {
 
 
     //Getters
-    public String getEnCounter(){return  Encounter_ID.get();}
+    public String getEncounter_ID(){return  Encounter_ID.get();}
 
     public String getHICNO(){return  HICNO.get();}
 
-    public String getPhysician(){return  Primary_Physician.get();}
+    public String getPrimary_Physician(){return  Primary_Physician.get();}
 
-    public String getDischargeStatus(){return  Discharge_Status.get();}
+    public String getDischarge_Status(){return  Discharge_Status.get();}
 
-    public String getDischargeDate(){return  Discharge_DTG.get();}
+    public String getDischarge_DTG(){return  Discharge_DTG.get();}
 
-    public String geAdmissionDate(){return  Admission_DTG.get();}
+    public String getAdmission_DTG(){return  Admission_DTG.get();}
 
-    public String getProc(){return  PROC_Codes.get();}
+    public String getPROC_Codes(){return  PROC_Codes.get();}
 
-    public String getDIAG(){return  DIAG_POA_Codes.get();}
+    public String getDIAG_POA_Codes(){return  DIAG_POA_Codes.get();}
 
     public String getAdmitted(){return  Admitted.get();}
 
@@ -111,7 +111,6 @@ public class Encounter   {
     public StringProperty DischargeDateProperty() {
         return Discharge_DTG;
     }
-
 
     public StringProperty AdmissionDateProperty() {
         return Admission_DTG;

@@ -37,8 +37,8 @@
       <Label layoutX="52.0" layoutY="356.0" text="Enter/Modify Patient:" />
       <TableView  fx:id="tableEncounter" layoutX="21.0" layoutY="136.0" prefHeight="200.0" prefWidth="746.0">
         <columns>
-          <TableColumn fx:id="columnEncounter" prefWidth="75.0" text="Encounter ID" />
-          <TableColumn fx:id="columnHICNO" prefWidth="75.0" text="HICNO" />
+            <TableColumn fx:id="columnEncounter" prefWidth="75.0" text="Encounter ID" />
+            <TableColumn fx:id="columnHICNO" prefWidth="75.0" text="HICNO" />
             <TableColumn fx:id="columnPrimary" minWidth="0.0" prefWidth="75.0" text="Primary Physician" />
             <TableColumn fx:id="columnDischarge" prefWidth="75.0" text="Discharge Status" />
             <TableColumn fx:id="columnDischargeDate" prefWidth="89.0" text="Discharge Date" />

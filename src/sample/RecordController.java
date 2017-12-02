@@ -24,6 +24,7 @@ public class RecordController implements Initializable {
     public Pane Encounter_Record;
     public TextField HicnoNumber, EncounterID, PrimaryPhysician,DischargeStatus,ProcedureCode,DiagnosisCodes,Admitted;
     public DatePicker AdmissionDate,DischargeDate;
+
     @FXML
     public TableView<Encounter> tableEncounter;
     @FXML
@@ -101,7 +102,8 @@ public class RecordController implements Initializable {
                         rs.getString("Admission_DTG"),
                         rs.getString("PROC_Codes"),
                         rs.getString("DIAG_POA_Codes"),
-                        rs.getString("Admitted")));
+                        rs.getString("Admitted")
+                ));
                 tableEncounter.setItems(data);
             }
 
