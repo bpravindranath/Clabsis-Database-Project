@@ -15,7 +15,7 @@
    <children>
       <MenuBar fx:id="menu" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="1199.0">
          <menus>
-            <Menu fx:id="Opener" mnemonicParsing="false" onAction="#menuClicks" text="Home">
+            <Menu fx:id="Opener" mnemonicParsing="false" onAction="#menuHOMEClicks" text="Home">
                <items>
                   <MenuItem mnemonicParsing="false" text="Home" />
                </items>
@@ -27,7 +27,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Analysis">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Analysis" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuAnalysisClicks" text="Analysis" />
                </items>
             </Menu>
          </menus>

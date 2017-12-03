@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -51,5 +51,6 @@
         <Button layoutX="429.0" layoutY="48.0" mnemonicParsing="false" onAction="#procedureAdd" text="ADD" />
         <Button layoutX="493.0" layoutY="48.0" mnemonicParsing="false" onAction="#procedureUpdate" text="UPDATE" />
           <TextField fx:id="ProcedureEncounterID" layoutX="16.0" layoutY="48.0" />
+      <ComboBox fx:id="exisistingPatientsComboBox" layoutX="240.0" layoutY="48.0" onAction="#fillProcedureForm" prefHeight="27.0" prefWidth="178.0" promptText="Existing Patients..." />
     </children>
 </AnchorPane>

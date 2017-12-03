@@ -79,6 +79,8 @@ public class Controller implements Initializable  {
     private Integer  IMMUNE, ANTIBIOTICS, MRSA, COPD, CANCER, TUBERCULOSIS, DIABETES, PREGNANT, OBESITY, A1C, HIV;
 
 
+    @FXML
+    private Label hello;
 
 
 
@@ -146,8 +148,8 @@ public class Controller implements Initializable  {
     @FXML //function to  patient
     public void addPatient(ActionEvent event){
 
-        if(hicno.getText().isEmpty() && patient_name.getText().isEmpty() && patient_birth.getText().isEmpty()
-            && patient_sex.getText().isEmpty() && hospital_ccn.getText().isEmpty()) {
+        if(hicno.getText().isEmpty() || patient_name.getText().isEmpty() || patient_birth.getText().isEmpty()
+                || patient_sex.getText().isEmpty() || hospital_ccn.getText().isEmpty()) {
 
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Validate Fields");
@@ -191,6 +193,8 @@ public class Controller implements Initializable  {
 
     public void MedicalHistory(ActionEvent event){
 
+        hello.setText("HELLO");
+
         try{
             fxmlLoader = new FXMLLoader(getClass().getResource("Medical_History.fxml"));
             Parent root = (Parent)fxmlLoader.load();
@@ -211,32 +215,45 @@ public class Controller implements Initializable  {
 
     public void updatePatient(ActionEvent event){
 
-        try {
+
+        if(hicno.getText().isEmpty() || patient_name.getText().isEmpty() || patient_birth.getText().isEmpty()
+                || patient_sex.getText().isEmpty() || hospital_ccn.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validate Fields");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Make sure all fields are filled in and HICNO is unique");
+            alert.showAndWait();
+
+        } else {
 
 
-            Connection conn = dc.Connect();
-
-            String query = "UPDATE Patient set NAME = ?, DOB= ?, SEX  = ?, CCN_ID = ? where HICNO = ?";
-
-            PreparedStatement preparedStatement = conn.prepareStatement(query);
-            preparedStatement.setString(1, patient_name.getText());
-            preparedStatement.setString(2, patient_birth.getText());
-            preparedStatement.setString(3, patient_sex.getText());
-            preparedStatement.setString(4, hospital_ccn.getText());
-            preparedStatement.setString(5, hicno.getText());
+            try {
 
 
-            preparedStatement.executeUpdate();
+                Connection conn = dc.Connect();
 
-            conn.close();
+                String query = "UPDATE Patient SET NAME = ?, DOB= ?, SEX  = ?, CCN_ID = ? WHERE HICNO = ?";
 
-            LoadPatientData();
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setString(1, patient_name.getText());
+                preparedStatement.setString(2, patient_birth.getText());
+                preparedStatement.setString(3, patient_sex.getText());
+                preparedStatement.setString(4, hospital_ccn.getText());
+                preparedStatement.setString(5, hicno.getText());
 
-        }catch (Exception e){
-            System.err.print(e);
+
+                preparedStatement.executeUpdate();
+
+                conn.close();
+
+                LoadPatientData();
+
+            } catch (Exception e) {
+                System.err.print(e);
+            }
+
         }
-
-
 
     }
 
@@ -313,8 +330,32 @@ public class Controller implements Initializable  {
     }
 
 
+
+
     @FXML
-    public void menuClicks(ActionEvent event) {
+    public void menuAnalysisClicks(ActionEvent event) {
+
+        try{
+
+            Parent record = FXMLLoader.load(getClass().getResource("Analysis.fxml"));
+
+            Scene recordScene = new Scene(record);
+
+            Stage stage = (Stage) Patient_History.getScene().getWindow();
+
+            stage.setScene(recordScene);
+
+            stage.show();
+
+
+        }catch (Exception e){
+            System.err.print(e);
+        }
+
+    }
+
+    @FXML
+    public void menuRECORDClicks(ActionEvent event) {
 
         try{
 

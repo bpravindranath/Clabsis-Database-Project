@@ -64,12 +64,27 @@ public class RecordController implements Initializable {
     @FXML
     public ComboBox hicComboBox;
 
+    @FXML
+    final ObservableList procedureOptions = FXCollections.observableArrayList();
+
+    @FXML
+    public ComboBox exisistingPatientsComboBox;
+
+
 
     @FXML
     final ObservableList encounterOptions = FXCollections.observableArrayList();
 
     @FXML
     public ComboBox encounterCombo;
+
+
+    @FXML
+    final ObservableList infectionOptions = FXCollections.observableArrayList();
+
+    @FXML
+    public ComboBox exisistingEncountersCombo;
+
 
 
     @FXML
@@ -99,6 +114,9 @@ public class RecordController implements Initializable {
 
         loadProcedureBox();
 
+        loadInfectionBox();
+
+        loadProcedureFormBox();
 
         loadProceduresandInfections();
 
@@ -130,6 +148,32 @@ public class RecordController implements Initializable {
 
     }
 
+
+    private void loadProcedureFormBox() {
+
+        try {
+            Connection conn = dc.Connect();
+
+            ResultSet rs = conn.createStatement().executeQuery("SELECT *" +
+                    "FROM csmith131db.`Procedure`");
+
+            while(rs.next()){
+
+                procedureOptions.add(rs.getString("EN_ID"));
+
+            }
+
+            exisistingPatientsComboBox.getItems().addAll(procedureOptions);
+
+            conn.close();
+
+
+        } catch (Exception e) {
+
+            System.err.print(e);
+        }
+
+    }
 
     @FXML
     public void tableClick(MouseEvent mouseEvent){
@@ -209,9 +253,72 @@ public class RecordController implements Initializable {
 
     }
 
+    private void loadInfectionBox() {
+
+        try {
+            Connection conn = dc.Connect();
+
+            ResultSet rs = conn.createStatement().executeQuery("SELECT *" +
+                    "FROM csmith131db.Infection, csmith131db.`Procedure` WHERE csmith131db.`Infection`.E_ID = csmith131db.`Procedure`.EN_ID");
+            while(rs.next()){
+
+                infectionOptions.add(rs.getString("E_ID"));
+
+            }
+
+            exisistingEncountersCombo.getItems().addAll(infectionOptions);
+
+
+        } catch (Exception e) {
+
+            System.err.print(e);
+        }
+
+    }
+
+    @FXML
+    public void fillInfectionForm(ActionEvent event){
+
+
+        try  {
+
+            Connection conn = dc.Connect();
+
+            String query ="SELECT * FROM csmith131db.Infection WHERE E_ID = ?";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+            preparedStatement.setString(1, (String)exisistingEncountersCombo.getSelectionModel().getSelectedItem());
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()){
+
+
+
+                InfectionEncounterID.setText(rs.getString("E_ID"));
+                InfectionType.setText(rs.getString("Infection_Type"));
+                DiagnosisDate.setText( rs.getString("Diagnosis_DTG"));
+
+
+
+
+
+            }
+
+            conn.close();
+            preparedStatement.close();
+
+
+
+        } catch (Exception e){
+            System.err.println(e);
+        }
+
+    }
+
     @FXML
     public void fillEncounterForm(ActionEvent event){
-
 
         try  {
 
@@ -227,6 +334,8 @@ public class RecordController implements Initializable {
 
             while(rs.next()){
 
+
+
                 EncounterID.setText(rs.getString("Encounter_ID"));
                 HicnoNumber.setText( rs.getString("HICNO"));
                 PrimaryPhysician.setText(rs.getString("Primary_Physician"));
@@ -236,6 +345,47 @@ public class RecordController implements Initializable {
                 ProcedureCode.setText(rs.getString("PROC_Codes"));
                 DiagnosisCodes.setText(rs.getString("DIAG_POA_Codes"));
                 Admitted.setText(rs.getString("Admitted"));
+
+            }
+
+            conn.close();
+            preparedStatement.close();
+
+
+
+        } catch (Exception e){
+            System.err.println(e);
+        }
+
+    }
+
+    @FXML
+    public void fillProcedureForm(ActionEvent event){
+
+        try  {
+
+            Connection conn = dc.Connect();
+
+            String query ="SELECT * FROM csmith131db.`Procedure` WHERE EN_ID = ?";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+            preparedStatement.setString(1, (String)exisistingPatientsComboBox.getSelectionModel().getSelectedItem());
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()){
+
+
+                ProcedureEncounterID.setText(rs.getString("EN_ID"));
+                InsertionSite.setText( rs.getString("Insertion_Site"));
+                InsertingProvider.setText(rs.getString("Inserting_Provider"));
+                ProcedureList.setText(rs.getString("Procedure_List_Follow"));
+                PatientLocation.setText(rs.getString("Patient_Location"));
+                InsertionCircumstances.setText(rs.getString("Insertion_Circumstance"));
+                CatheterType.setText(rs.getString("Catheter_Type"));
+                RemovedDate.setText(rs.getString("DTG_Removed"));
+                InsertionDate.setText(rs.getString("DTG_Inserted"));
 
             }
 
@@ -511,7 +661,7 @@ public class RecordController implements Initializable {
 
 
     @FXML
-    public void menuClicks(ActionEvent event) {
+    public void menuHOMEClicks(ActionEvent event) {
 
         try{
 
@@ -554,11 +704,11 @@ public class RecordController implements Initializable {
     @FXML
     public void encounterADD(ActionEvent event){
 
-        if(EncounterID.getText().isEmpty() && HicnoNumber.getText().isEmpty() && PrimaryPhysician.getText().isEmpty()
-                && DischargeStatus.getText().isEmpty() && DischargeDate.getText().isEmpty()
-                && AdmissionDate.getText().isEmpty()
-                && ProcedureCode.getText().isEmpty() && DiagnosisCodes.getText().isEmpty()
-                && Admitted.getText().isEmpty()) {
+        if(EncounterID.getText().isEmpty() || HicnoNumber.getText().isEmpty() || PrimaryPhysician.getText().isEmpty()
+                || DischargeStatus.getText().isEmpty() || DischargeDate.getText().isEmpty()
+                || AdmissionDate.getText().isEmpty()
+                || ProcedureCode.getText().isEmpty() || DiagnosisCodes.getText().isEmpty()
+                || Admitted.getText().isEmpty()) {
 
                         Alert alert = new Alert(Alert.AlertType.WARNING);
                         alert.setTitle("Input Error...");
@@ -604,11 +754,11 @@ public class RecordController implements Initializable {
     @FXML
     public void encounterUpdate(ActionEvent event){
 
-        if(EncounterID.getText().isEmpty() && HicnoNumber.getText().isEmpty() && PrimaryPhysician.getText().isEmpty()
-                && DischargeStatus.getText().isEmpty() && DischargeDate.getText().isEmpty()
-                && AdmissionDate.getText().isEmpty()
-                && ProcedureCode.getText().isEmpty() && DiagnosisCodes.getText().isEmpty()
-                && Admitted.getText().isEmpty()) {
+        if(EncounterID.getText().isEmpty() || HicnoNumber.getText().isEmpty() || PrimaryPhysician.getText().isEmpty()
+                || DischargeStatus.getText().isEmpty() || DischargeDate.getText().isEmpty()
+                || AdmissionDate.getText().isEmpty()
+                || ProcedureCode.getText().isEmpty() || DiagnosisCodes.getText().isEmpty()
+                || Admitted.getText().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Update Error...");
@@ -675,10 +825,10 @@ public class RecordController implements Initializable {
     @FXML
     public void procedureAdd(ActionEvent event){
 
-        if(ProcedureEncounterID.getText().isEmpty() && InsertionSite.getText().isEmpty() && InsertingProvider.getText().isEmpty()
-                && InsertionCircumstances.getText().isEmpty() && CatheterType.getText().isEmpty()
-                && ProcedureList.getText().isEmpty() && PatientLocation.getText().isEmpty() && InsertionDate.getText().isEmpty()
-                && RemovedDate.getText().isEmpty()) {
+        if(ProcedureEncounterID.getText().isEmpty() || InsertionSite.getText().isEmpty() || InsertingProvider.getText().isEmpty()
+                || InsertionCircumstances.getText().isEmpty() || CatheterType.getText().isEmpty()
+                || ProcedureList.getText().isEmpty() || PatientLocation.getText().isEmpty() || InsertionDate.getText().isEmpty()
+                || RemovedDate.getText().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Add Procedure Error...");
@@ -724,10 +874,10 @@ public class RecordController implements Initializable {
     @FXML
     public void procedureUpdate(ActionEvent event){
 
-        if(ProcedureEncounterID.getText().isEmpty() && InsertionSite.getText().isEmpty() && InsertingProvider.getText().isEmpty()
-                && InsertionCircumstances.getText().isEmpty() && CatheterType.getText().isEmpty()
-                && ProcedureList.getText().isEmpty() && PatientLocation.getText().isEmpty() && InsertionDate.getText().isEmpty()
-                && RemovedDate.getText().isEmpty()) {
+        if(ProcedureEncounterID.getText().isEmpty() || InsertionSite.getText().isEmpty() || InsertingProvider.getText().isEmpty()
+                || InsertionCircumstances.getText().isEmpty() || CatheterType.getText().isEmpty()
+                || ProcedureList.getText().isEmpty() || PatientLocation.getText().isEmpty() || InsertionDate.getText().isEmpty()
+                || RemovedDate.getText().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Update Procedure Error...");
@@ -777,13 +927,11 @@ public class RecordController implements Initializable {
 
 
     //Methods for Infection
-
-
     @FXML
     public void infectionAdd(ActionEvent event){
 
-        if(InfectionEncounterID.getText().isEmpty() && InfectionType.getText().isEmpty()
-                && DiagnosisDate.getText().isEmpty()) {
+        if(InfectionEncounterID.getText().isEmpty() || InfectionType.getText().isEmpty()
+                || DiagnosisDate.getText().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Add Infection Error...");
@@ -821,8 +969,8 @@ public class RecordController implements Initializable {
     @FXML
     public void infectionUpdate(ActionEvent event){
 
-        if(InfectionEncounterID.getText().isEmpty() && InfectionType.getText().isEmpty()
-                && DiagnosisDate.getText().isEmpty()) {
+        if(InfectionEncounterID.getText().isEmpty() || InfectionType.getText().isEmpty()
+                || DiagnosisDate.getText().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Update Infection Error...");
@@ -856,6 +1004,28 @@ public class RecordController implements Initializable {
                 System.err.print(e);
             }
 
+        }
+
+    }
+
+    @FXML
+    public void menuAnalysisClicks(ActionEvent event) {
+
+        try{
+
+            Parent record = FXMLLoader.load(getClass().getResource("Analysis.fxml"));
+
+            Scene recordScene = new Scene(record);
+
+            Stage stage = (Stage) Encounter_Record.getScene().getWindow();
+
+            stage.setScene(recordScene);
+
+            stage.show();
+
+
+        }catch (Exception e){
+            System.err.print(e);
         }
 
     }
