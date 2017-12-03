@@ -60,6 +60,10 @@ public class Controller implements Initializable  {
     private DbConnection dc;
 
 
+    @FXML
+    final ObservableList patientOptions = FXCollections.observableArrayList();
+    @FXML
+    public ComboBox patientComboBox;
 
     //controller for medical history
     @FXML
@@ -88,6 +92,8 @@ public class Controller implements Initializable  {
 
 
         LoadPatientData();
+
+        loadPatientBox();
 
     }
 
@@ -328,6 +334,69 @@ public class Controller implements Initializable  {
 
         }catch (Exception e){
             System.err.print(e);
+        }
+
+    }
+
+
+    private void loadPatientBox() {
+
+        try {
+            Connection conn = dc.Connect();
+
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM csmith131db.Patient");
+
+            while(rs.next()){
+
+                patientOptions.add(rs.getString("HICNO"));
+
+            }
+
+            patientComboBox.getItems().addAll(patientOptions);
+
+
+        } catch (Exception e) {
+
+            System.err.print(e);
+        }
+
+    }
+
+    @FXML
+    public void fillPatientForm(ActionEvent event){
+
+
+        try  {
+
+            Connection conn = dc.Connect();
+
+            String query ="SELECT * FROM csmith131db.Patient WHERE HICNO = ?";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+            preparedStatement.setString(1, (String)patientComboBox.getSelectionModel().getSelectedItem());
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()){
+
+                hicno.setText(rs.getString("HICNO"));
+                patient_name.setText(rs.getString("NAME"));
+                patient_birth.setText(rs.getString("DOB"));
+                patient_sex.setText(rs.getString("SEX"));
+                hospital_ccn.setText(rs.getString("CCN_ID"));
+
+
+            }
+
+
+            conn.close();
+            preparedStatement.close();
+
+
+
+        } catch (Exception e){
+            System.err.println(e);
         }
 
     }

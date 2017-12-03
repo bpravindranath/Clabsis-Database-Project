@@ -40,23 +40,23 @@ public class Encounter   {
 
 
     //Getters
-    public String getEncounter_ID(){return  Encounter_ID.get();}
+    public String getEncounter_ID(){return  this.Encounter_ID.get();}
 
     public String getHICNO(){return  HICNO.get();}
 
-    public String getPrimary_Physician(){return  Primary_Physician.get();}
+    public String getPrimary_Physician(){return this.Primary_Physician.get();}
 
-    public String getDischarge_Status(){return  Discharge_Status.get();}
+    public String getDischarge_Status(){return  this.Discharge_Status.get();}
 
-    public String getDischarge_DTG(){return  Discharge_DTG.get();}
+    public String getDischarge_DTG(){return  this.Discharge_DTG.get();}
 
-    public String getAdmission_DTG(){return  Admission_DTG.get();}
+    public String getAdmission_DTG(){return  this.Admission_DTG.get();}
 
-    public String getPROC_Codes(){return  PROC_Codes.get();}
+    public String getPROC_Codes(){return  this.PROC_Codes.get();}
 
-    public String getDIAG_POA_Codes(){return  DIAG_POA_Codes.get();}
+    public String getDIAG_POA_Codes(){return  this.DIAG_POA_Codes.get();}
 
-    public String getAdmitted(){return  Admitted.get();}
+    public String getAdmitted(){return  this.Admitted.get();}
 
 
 

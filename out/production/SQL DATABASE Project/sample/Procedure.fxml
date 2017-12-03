@@ -41,8 +41,8 @@
                 <Label text="Date Inserted:" GridPane.rowIndex="6" />
                 <TextField fx:id="ProcedureList" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <TextField fx:id="PatientLocation" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <DatePicker fx:id="RemovedDate" prefHeight="27.0" prefWidth="277.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                <DatePicker fx:id="InsertionDate" prefHeight="27.0" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <TextField fx:id="RemovedDate" prefHeight="27.0" prefWidth="277.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <TextField fx:id="InsertionDate" prefHeight="27.0" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="Date Removed:" GridPane.rowIndex="7" />
             <TextField fx:id="InsertionCircumstances" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="CatheterType" GridPane.columnIndex="1" GridPane.rowIndex="3" />
