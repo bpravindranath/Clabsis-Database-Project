@@ -595,7 +595,7 @@ public class RecordController implements Initializable {
 
     }
 
-    @FXML //loads patient table
+     //loads patient table
     private void loadProceduresandInfections(){
 
 
@@ -774,26 +774,32 @@ public class RecordController implements Initializable {
 
                 Connection conn = dc.Connect();
 
-                String query = "UPDATE Encounter SET Encounter_ID = ?, Primary_Physician  = ?, Discharge_Status = ?," +
-                        "Discharge_DTG = ?, Admission_DTG = ?, PROC_Codes = ?, DIAG_POA_Codes = ?, Admitted =? WHERE HICNO = ?";
+                String query = "UPDATE Encounter SET  Primary_Physician  = ?, Discharge_Status = ?," +
+                        "Discharge_DTG = ?, Admission_DTG = ?, PROC_Codes = ?, DIAG_POA_Codes = ?, Admitted =? WHERE HICNO = ? AND Encounter_ID =?";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
-                preparedStatement.setString(1, EncounterID.getText());
-                preparedStatement.setString(2, PrimaryPhysician.getText());
-                preparedStatement.setString(3, DischargeStatus.getText());
-                preparedStatement.setString(4, DischargeDate.getText());
-                preparedStatement.setString(5, AdmissionDate.getText());
-                preparedStatement.setString(6, ProcedureCode.getText());
-                preparedStatement.setString(7, DiagnosisCodes.getText());
-                preparedStatement.setString(8, Admitted.getText());
-                preparedStatement.setString(9, HicnoNumber.getText());
+
+                preparedStatement.setString(1, PrimaryPhysician.getText());
+                preparedStatement.setString(2, DischargeStatus.getText());
+                preparedStatement.setString(3, DischargeDate.getText());
+                preparedStatement.setString(4, AdmissionDate.getText());
+                preparedStatement.setString(5, ProcedureCode.getText());
+                preparedStatement.setString(6, DiagnosisCodes.getText());
+                preparedStatement.setString(7, Admitted.getText());
+                preparedStatement.setString(8, HicnoNumber.getText());
+                preparedStatement.setString(9, EncounterID.getText());
 
 
                 preparedStatement.executeUpdate();
 
                 conn.close();
+                preparedStatement.close();
 
-                loadEncounter();
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Patient Encounter Updated ");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient Encounter Successfully Updated");
+                alert.showAndWait();
 
             } catch (Exception e) {
                 System.err.print(e);
@@ -864,6 +870,12 @@ public class RecordController implements Initializable {
                 preparedStatement.close();
 
 
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Patient Procedure Added ");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient Procedure Successfully Added");
+                alert.showAndWait();
+
 
             } catch (Exception e) {
                 System.err.print(e);
@@ -915,7 +927,12 @@ public class RecordController implements Initializable {
                 conn.close();
                 preparedStatement.close();
 
-                //LoadPatientData();
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Patient Procedure Update ");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient Procedure Successfully Update");
+                alert.showAndWait();
 
             } catch (Exception e) {
                 System.err.print(e);
@@ -925,8 +942,6 @@ public class RecordController implements Initializable {
 
     }
 
-
-    //Methods for Infection
     @FXML
     public void infectionAdd(ActionEvent event){
 
@@ -958,6 +973,13 @@ public class RecordController implements Initializable {
 
                 conn.close();
                 preparedStatement.close();
+
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Patient Infection Added ");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient Infection Successfully Added");
+                alert.showAndWait();
 
 
             } catch (Exception e) {
@@ -995,10 +1017,19 @@ public class RecordController implements Initializable {
 
                 preparedStatement.executeUpdate();
 
+
                 conn.close();
                 preparedStatement.close();
 
-                //LoadPatientData();
+
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Patient Infection Updated ");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient Infection Successfully Updated");
+                alert.showAndWait();
+
+
 
             } catch (Exception e) {
                 System.err.print(e);

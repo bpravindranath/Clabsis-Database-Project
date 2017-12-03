@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -48,8 +49,7 @@ public class Controller implements Initializable  {
     private TableColumn<Patient,String> columnSEX;
     @FXML
     private TableColumn<Patient,String> columnCCN_ID;
-    @FXML
-    private Button ButtonLoad;
+
 
     @FXML
     public TextField patient_sex, patient_birth,patient_name,hicno,hospital_ccn;
@@ -65,12 +65,26 @@ public class Controller implements Initializable  {
     @FXML
     public ComboBox patientComboBox;
 
+
+
+    @FXML
+    final ObservableList currentPatient = FXCollections.observableArrayList();
+    @FXML
+    public ComboBox currentpatientComboBox;
+
+
+
     //controller for medical history
     @FXML
     private TextField History_Hicno;
 
     @FXML
-    private RadioButton immuneYes,antiYes,mrsaYes,copdYes,cancerYes,tuberYes,diabetesYes,pregnantYes,hivYes,obesityYes,a1cYes;
+    private RadioButton immuneYes,antiYes,mrsaYes,copdYes,cancerYes,tuberYes,diabetesYes,pregnantYes,hivYes,obesityYes,a1cYes,a1cNo;
+
+    @FXML
+    private RadioButton immuneNo,antiNo,mrsaNo,copdNo,hivNo,cancerNo,tuberNo,diabetesNo,pregnantNo,obesityNo;
+
+
 
     @FXML
     private ToggleGroup immune,antibiotics, mrsa,copd,cancer,tuberculosis,diabetes,pregnant,obesity,a1c,hiv;
@@ -80,7 +94,7 @@ public class Controller implements Initializable  {
 
 
     @FXML
-    private Label hello;
+    private Label immunoLabel,tuberLabel,anitLabel,diabetesLabel,mrsaLabel,pregnantLabel,copdLabel,obesityLabel,hivLabel,a1cLabel,cancerLabel;
 
 
 
@@ -180,9 +194,17 @@ public class Controller implements Initializable  {
 
                 LoadPatientData();
 
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Patient Information Added ");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient Information Successfully Added");
+                alert.showAndWait();
+
             } catch (Exception e) {
                 System.err.print(e);
             }
+
 
         }
 
@@ -193,7 +215,7 @@ public class Controller implements Initializable  {
 
     public void MedicalHistory(ActionEvent event){
 
-        hello.setText("HELLO");
+
 
         try{
             fxmlLoader = new FXMLLoader(getClass().getResource("Medical_History.fxml"));
@@ -249,6 +271,13 @@ public class Controller implements Initializable  {
 
                 LoadPatientData();
 
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Patient Information Updated ");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient Information Successfully Updated");
+                alert.showAndWait();
+
+
             } catch (Exception e) {
                 System.err.print(e);
             }
@@ -257,9 +286,93 @@ public class Controller implements Initializable  {
 
     }
 
+    @FXML
+    public void medicalUpdate(ActionEvent event){
+
+        //IMMUNE SUPPRESSIVE MEDICINE
+        if(immuneYes.isSelected()){ IMMUNE = 1; System.out.println(IMMUNE); } else { IMMUNE = 0; }
+
+        //ANTIBIOTICS
+        if(antiYes.isSelected()){ ANTIBIOTICS = 1;System.out.println(ANTIBIOTICS); } else { ANTIBIOTICS = 0; }
+
+        //MRSA
+        if(mrsaYes.isSelected()){ MRSA = 1; } else { MRSA = 0; }
+
+        //COPD
+        if(copdYes.isSelected()){ COPD = 1; } else { COPD = 0; }
+
+        //CANCER
+        if(cancerYes.isSelected()){ CANCER = 1; } else { CANCER = 0;}
+
+        //TUBERCULOSIS
+        if(tuberYes.isSelected()){ TUBERCULOSIS = 1; } else { TUBERCULOSIS = 0;}
+
+        //DIABETES
+        if(diabetesYes.isSelected()){ DIABETES = 1; }else { DIABETES = 0; }
+
+        //PREGNANT
+        if(pregnantYes.isSelected()){ PREGNANT = 1; } else { PREGNANT = 0;}
+
+        //HIV
+        if(hivYes.isSelected()){ HIV = 1; } else {HIV = 0;}
+
+        //OBESITY
+        if(obesityYes.isSelected()){ OBESITY = 1; } else { OBESITY = 0;}
+
+        //A1C
+        if(a1cYes.isSelected()){ A1C = 1; } else { A1C = 0;}
+
+
+        String Hicno = (String)currentpatientComboBox.getSelectionModel().getSelectedItem();
+
+        try{
+
+
+            Connection conn = dc.Connect();
+
+            String query = "UPDATE Medical_History Set ImmunoSuppressive_Medications = ?, Antibiotics =?," +
+                    " MRSA=?,COPD=?,HIV=?,Cancer=?,Tuberculosis=?,Diabetes=?,Pregnant=?,Obesity=?,A1C_Level_Low = ? WHERE HICID = ?";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+
+            preparedStatement.setInt(1, IMMUNE);
+            preparedStatement.setInt(2, ANTIBIOTICS);
+            preparedStatement.setInt(3, MRSA);
+            preparedStatement.setInt(4, COPD);
+            preparedStatement.setInt(5, HIV);
+            preparedStatement.setInt(6, CANCER);
+            preparedStatement.setInt(7, TUBERCULOSIS);
+            preparedStatement.setInt(8, DIABETES);
+            preparedStatement.setInt(9, PREGNANT);
+            preparedStatement.setInt(10, OBESITY);
+            preparedStatement.setInt(11, A1C);
+            preparedStatement.setString(12, Hicno);
+
+
+            preparedStatement.execute();
+
+            conn.close();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Medical History Updated ");
+            alert.setHeaderText(null);
+            alert.setContentText("Medical History Successfully Updated");
+            alert.showAndWait();
+
+
+
+        }catch (Exception e){
+            System.err.print(e);
+        }
+
+
+
+    }
+
 
     @FXML
-    void updateMedicalHistory(ActionEvent event) {
+    void addMedicalHistory(ActionEvent event) {
 
         //IMMUNE SUPPRESSIVE MEDICINE
         if(immuneYes.isSelected()){ IMMUNE = 1; System.out.println(IMMUNE); } else { IMMUNE = 0; }
@@ -322,6 +435,13 @@ public class Controller implements Initializable  {
             conn.close();
 
 
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Medical History Added ");
+            alert.setHeaderText(null);
+            alert.setContentText("Medical History Successfully Added");
+            alert.showAndWait();
+
+
         }catch (Exception e){
             System.err.print(e);
         }
@@ -380,6 +500,77 @@ public class Controller implements Initializable  {
     }
 
 
+    @FXML
+    public void fillMedicalForm(ActionEvent event){
+
+
+        try  {
+
+            Connection conn = dc.Connect();
+
+            String query ="SELECT * FROM csmith131db.Medical_History WHERE HICID = ?";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+            preparedStatement.setString(1, (String)currentpatientComboBox.getSelectionModel().getSelectedItem());
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()){
+
+
+                if(rs.getInt("ImmunoSuppressive_Medications") == 0){ immuneNo.setSelected(true);
+                }else{immuneYes.setSelected(true);}
+
+                if(rs.getInt("Antibiotics") == 0){ antiNo.setSelected(true);
+                }else{antiYes.setSelected(true);}
+
+                if(rs.getInt("MRSA") == 0){ mrsaNo.setSelected(true);
+                }else{mrsaYes.setSelected(true);}
+
+                if(rs.getInt("COPD") == 0){ copdNo.setSelected(true);
+                }else{copdYes.setSelected(true);}
+
+                if(rs.getInt("HIV") == 0){ hivNo.setSelected(true);
+                }else{hivYes.setSelected(true);}
+
+                if(rs.getInt("Cancer") == 0){ cancerNo.setSelected(true);
+                }else{cancerYes.setSelected(true);}
+
+                if(rs.getInt("Tuberculosis") == 0){ tuberNo.setSelected(true);
+                }else{tuberYes.setSelected(true);}
+
+                if(rs.getInt("Diabetes") == 0){ diabetesNo.setSelected(true);
+                }else{diabetesYes.setSelected(true);}
+
+                if(rs.getInt("Pregnant") == 0){ pregnantNo.setSelected(true);
+                }else{pregnantYes.setSelected(true);}
+
+                if(rs.getInt("Obesity") == 0){ obesityNo.setSelected(true);
+                }else{obesityYes.setSelected(true);}
+
+                if(rs.getInt("A1C_Level_Low") == 0){ a1cNo.setSelected(true);
+                }else{a1cYes.setSelected(true);}
+
+
+
+
+
+            }
+
+            conn.close();
+            preparedStatement.close();
+
+
+
+        } catch (Exception e){
+            System.err.println(e);
+        }
+
+    }
+
+
+
     private void loadPatientBox() {
 
         try {
@@ -389,11 +580,11 @@ public class Controller implements Initializable  {
 
             while(rs.next()){
 
-                patientOptions.add(rs.getString("HICNO"));
+                currentPatient.add(rs.getString("HICNO"));
 
             }
 
-            patientComboBox.getItems().addAll(patientOptions);
+            currentpatientComboBox.getItems().addAll(currentPatient);
 
 
         } catch (Exception e) {
@@ -403,9 +594,9 @@ public class Controller implements Initializable  {
 
     }
 
-    @FXML
-    public void fillPatientForm(ActionEvent event){
 
+    public void fillPatientForm(String HicID){
+        String hicnonumber = null;
 
         try  {
 
@@ -415,7 +606,7 @@ public class Controller implements Initializable  {
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
 
-            preparedStatement.setString(1, (String)patientComboBox.getSelectionModel().getSelectedItem());
+            preparedStatement.setString(1, HicID);
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -427,8 +618,12 @@ public class Controller implements Initializable  {
                 patient_sex.setText(rs.getString("SEX"));
                 hospital_ccn.setText(rs.getString("CCN_ID"));
 
+                hicnonumber = rs.getString("HICNO");
 
             }
+
+
+           getMedicalHistory(hicnonumber);
 
 
             conn.close();
@@ -441,6 +636,119 @@ public class Controller implements Initializable  {
         }
 
     }
+
+
+    @FXML
+    public void tablePatientClick(MouseEvent mouseEvent){
+
+        if(tablePatient.getSelectionModel().getSelectedItem() != null){
+
+
+            int index = tablePatient.getSelectionModel().selectedIndexProperty().get();
+            String hicno = null;
+
+            try{
+
+
+                Connection conn = dc.Connect();
+                String query = "SELECT * FROM csmith131db.Patient LIMIT ? ,1";
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setInt(1, index);
+
+                ResultSet rs = preparedStatement.executeQuery();
+
+                while(rs.next()){
+
+                    hicno = rs.getString("HICNO");
+
+                }
+
+                getMedicalHistory(hicno);
+                fillPatientForm(hicno);
+
+
+
+                conn.close();
+
+                rs.close();
+
+            }catch(Exception e){
+
+            }
+
+        }
+    }
+
+
+    public void getMedicalHistory(String hicno){
+
+        try{
+
+
+           Connection conn = dc.Connect();
+           String  query = "SELECT * FROM csmith131db.Medical_History WHERE HICID IN (\n" +
+                    "  SELECT HICID\n" +
+                    "  FROM csmith131db.Patient\n" +
+                    "  WHERE HICNO = ? AND HICID = ?)";
+
+            PreparedStatement  preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1, hicno);
+            preparedStatement.setString(2, hicno);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+
+            while(rs.next()){
+
+                if(rs.getInt("ImmunoSuppressive_Medications")== 0){ immunoLabel.setText("NO");
+                }else {immunoLabel.setText("Yes"); }
+
+                if(rs.getInt("Antibiotics") == 0){ anitLabel.setText("NO");
+                }else {anitLabel.setText("Yes"); }
+
+
+                if(rs.getInt("MRSA") == 0){ mrsaLabel.setText("NO");
+                }else {mrsaLabel.setText("Yes"); }
+
+
+                if(rs.getInt("COPD") == 0){ copdLabel.setText("NO");
+                }else {copdLabel.setText("Yes"); }
+
+                if(rs.getInt("HIV") == 0){ hivLabel.setText("NO");
+                }else {hivLabel.setText("Yes"); }
+
+                if(rs.getInt("Cancer") == 0){ cancerLabel.setText("NO");
+                }else {cancerLabel.setText("Yes"); }
+
+                if(rs.getInt("Tuberculosis") == 0){ tuberLabel.setText("NO");
+                }else {tuberLabel.setText("Yes"); }
+
+                if(rs.getInt("Diabetes") == 0){ diabetesLabel.setText("NO");
+                }else {diabetesLabel.setText("Yes"); }
+
+
+                if(rs.getInt("Pregnant") == 0){ pregnantLabel.setText("NO");
+                }else {pregnantLabel.setText("Yes"); }
+
+                if(rs.getInt("Obesity") == 0){ obesityLabel.setText("NO");
+                }else {obesityLabel.setText("Yes"); }
+
+                if(rs.getInt("A1C_Level_Low") == 0){ a1cLabel.setText("NO");
+                }else {a1cLabel.setText("Yes"); }
+
+
+
+            }
+
+
+        }catch (Exception e){
+            System.err.println(e);
+        }
+
+    }
+
+
 
 
 

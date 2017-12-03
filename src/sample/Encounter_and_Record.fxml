@@ -52,7 +52,7 @@
          <font>
             <Font size="23.0" />
          </font></Label>
-      <TableView fx:id="tableEncounter" layoutX="20.0" layoutY="137.0" onMouseClicked="#tableClick" prefHeight="210.0" prefWidth="1163.0">
+      <TableView fx:id="tableEncounter" layoutX="21.0" layoutY="137.0" onMouseClicked="#tableClick" prefHeight="210.0" prefWidth="1163.0">
         <columns>
             <TableColumn fx:id="columnEncounter" prefWidth="97.2063980102539" text="Encounter ID" />
             <TableColumn fx:id="columnHICNO" prefWidth="71.39903259277344" text="HICNO" />
@@ -66,8 +66,8 @@
         </columns>
       </TableView>
       <Label layoutX="363.0" layoutY="376.0" text="and/or" />
-      <ComboBox fx:id="hicComboBox" layoutX="958.0" layoutY="89.0" onAction="#fillEncounterColumn" prefHeight="27.0" prefWidth="161.0" promptText="Existing Patients..." />
-      <Button layoutX="1129.0" layoutY="89.0" mnemonicParsing="false" onAction="#resetEncounterTable" text="Reset" />
+      <ComboBox fx:id="hicComboBox" layoutX="946.0" layoutY="89.0" onAction="#fillEncounterColumn" prefHeight="27.0" prefWidth="161.0" promptText="Existing Patients..." />
+      <Button layoutX="1116.0" layoutY="89.0" mnemonicParsing="false" onAction="#resetEncounterTable" text="Refresh" />
       <TableView fx:id="tableDiagnosis" layoutX="21.0" layoutY="418.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="276.0" prefWidth="1165.0">
         <columns>
           <TableColumn fx:id="columnInfectionType" prefWidth="76.9432373046875" text="Infection" />
@@ -82,7 +82,7 @@
             <TableColumn fx:id="columnRemoved" prefWidth="153.35162353515625" text="Date Removed" />
         </columns>
       </TableView>
-      <ComboBox fx:id="encounterCombo" layoutX="933.0" layoutY="373.0" onAction="#fillProcedureandInfectionTable" prefHeight="27.0" prefWidth="187.0" promptText="Exisiting Encounters..." />
-      <Button layoutX="1130.0" layoutY="373.0" mnemonicParsing="false" onAction="#resetProcedureandInfectionTable" text="Reset" />
+      <ComboBox fx:id="encounterCombo" layoutX="919.0" layoutY="373.0" onAction="#fillProcedureandInfectionTable" prefHeight="27.0" prefWidth="187.0" promptText="Exisiting Encounters..." />
+      <Button layoutX="1120.0" layoutY="373.0" mnemonicParsing="false" onAction="#resetProcedureandInfectionTable" text="Refresh" />
    </children>
 </Pane>
