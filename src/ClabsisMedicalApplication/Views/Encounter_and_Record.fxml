@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="Encounter_Record" maxHeight="1200.0" maxWidth="1200.0" prefHeight="1200.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClabsisMedicalApplication.Controllers.RecordController">
+   <children>
+      <MenuBar fx:id="menu" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="1199.0">
+         <menus>
+            <Menu fx:id="Opener" mnemonicParsing="false" onAction="#menuHOMEClicks" text="Home">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Home" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Record">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Record" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Analysis">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#menuAnalysisClicks" text="Analysis" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button layoutX="258.0" layoutY="89.0" mnemonicParsing="false" onAction="#encounterClick" text="Encounter">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button layoutX="260.0" layoutY="370.0" mnemonicParsing="false" onAction="#procedureClick" text="Procedure">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="infectionButton" layoutX="412.0" layoutY="370.0" mnemonicParsing="false" onAction="#infectionClick" text="Infection">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Label layoutX="21.0" layoutY="89.0" text="Enter/Update Patient:">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="21.0" layoutY="371.0" text="Enter/Update Patient:">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <TableView fx:id="tableEncounter" layoutX="21.0" layoutY="137.0" onMouseClicked="#tableClick" prefHeight="210.0" prefWidth="1163.0">
+        <columns>
+            <TableColumn fx:id="columnEncounter" prefWidth="97.2063980102539" text="Encounter ID" />
+            <TableColumn fx:id="columnHICNO" prefWidth="71.39903259277344" text="HICNO" />
+            <TableColumn fx:id="columnPrimary" minWidth="0.0" prefWidth="133.60093688964844" text="Primary Physician" />
+            <TableColumn fx:id="columnDischarge" minWidth="0.0" prefWidth="152.14837646484375" text="Discharge Status" />
+            <TableColumn fx:id="columnDischargeDate" prefWidth="125.35171508789062" text="Discharge Date" />
+            <TableColumn fx:id="columnAdmission" prefWidth="154.00653076171875" text="Admission Date" />
+            <TableColumn fx:id="columnProcedure" prefWidth="112.09033203125" text="Procedure" />
+            <TableColumn fx:id="columnDIAG" prefWidth="166.1678466796875" text="DIAG" />
+            <TableColumn fx:id="columnAdmitted" prefWidth="149.6807861328125" text="Admitted" />
+        </columns>
+      </TableView>
+      <Label layoutX="363.0" layoutY="376.0" text="and/or" />
+      <ComboBox fx:id="hicComboBox" layoutX="946.0" layoutY="89.0" onAction="#fillEncounterColumn" prefHeight="27.0" prefWidth="161.0" promptText="Existing Patients..." />
+      <Button layoutX="1116.0" layoutY="89.0" mnemonicParsing="false" onAction="#resetEncounterTable" text="Refresh" />
+      <TableView fx:id="tableDiagnosis" layoutX="21.0" layoutY="418.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="276.0" prefWidth="1165.0">
+        <columns>
+          <TableColumn fx:id="columnInfectionType" prefWidth="76.9432373046875" text="Infection" />
+          <TableColumn fx:id="columnDiagnosisDate" prefWidth="152.29676818847656" text="Diagnosis Date" />
+            <TableColumn fx:id="columnInsertionSite" prefWidth="140.20326232910156" text="Insertion Site" />
+            <TableColumn fx:id="columndAdministrator" minWidth="0.0" prefWidth="86.59036254882812" text="Administrator" />
+            <TableColumn fx:id="columnCircumstance" minWidth="0.0" prefWidth="151.6258544921875" text="Insertion Type" />
+            <TableColumn fx:id="columnCath" prefWidth="97.09674072265625" text="Catheter" />
+            <TableColumn fx:id="columnProcedures" prefWidth="71.32257080078125" text="Procedures" />
+            <TableColumn fx:id="columnLocation" prefWidth="91.36456298828125" text="Location" />
+            <TableColumn fx:id="columnInserted" prefWidth="145.1483154296875" text="Date Inserted" />
+            <TableColumn fx:id="columnRemoved" prefWidth="153.35162353515625" text="Date Removed" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="encounterCombo" layoutX="919.0" layoutY="373.0" onAction="#fillProcedureandInfectionTable" prefHeight="27.0" prefWidth="187.0" promptText="Exisiting Encounters..." />
+      <Button layoutX="1120.0" layoutY="373.0" mnemonicParsing="false" onAction="#resetProcedureandInfectionTable" text="Refresh" />
+   </children>
+</Pane>
