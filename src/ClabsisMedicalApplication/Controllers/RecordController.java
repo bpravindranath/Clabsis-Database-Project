@@ -195,7 +195,7 @@ public class RecordController implements Initializable {
 
                 while(rs.next()){
 
-                    System.out.println(rs.getString("Encounter_ID"));
+                    //System.out.println(rs.getString("Encounter_ID"));
 
                 }
 
@@ -627,10 +627,6 @@ public class RecordController implements Initializable {
 
             while(rs.next()){
 
-
-//                System.out.println(rs.getString("Diagnosis_DTG"));
-                //get string from db
-
                 diagnosis_data.add(new Diagnosis(
                         rs.getString("Infection_Type"),
                         rs.getString("Diagnosis_DTG"),
@@ -694,8 +690,6 @@ public class RecordController implements Initializable {
             window.setScene(new Scene(root));
             window.show();
 
-
-
         }catch (Exception e){
             System.err.print(e);
         }
@@ -741,9 +735,19 @@ public class RecordController implements Initializable {
 
                 preparedStatement.execute();
 
-                conn.close();
-
                 loadEncounter();
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Patient Encounter Information Added ");
+                alert.setHeaderText(null);
+                alert.setContentText("Patient Encounter Information Successfully Added");
+                alert.showAndWait();
+
+
+
+                conn.close();
+                preparedStatement.close();
+
 
             } catch (Exception e) {
                 System.err.print(e);
@@ -967,9 +971,11 @@ public class RecordController implements Initializable {
                 String query = "INSERT INTO Infection VALUES (?,?,?)";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
-                preparedStatement.setString(1, InfectionEncounterID.getText());
-                preparedStatement.setString(2, InfectionType.getText());
-                preparedStatement.setString(3, DiagnosisDate.getText());
+
+
+                preparedStatement.setString(1, InfectionType.getText());
+                preparedStatement.setString(2, DiagnosisDate.getText());
+                preparedStatement.setString(3, InfectionEncounterID.getText());
 
 
                 preparedStatement.execute();

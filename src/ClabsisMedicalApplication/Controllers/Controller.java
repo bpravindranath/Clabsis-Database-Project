@@ -75,7 +75,7 @@ public class Controller implements Initializable  {
 
 
 
-    //controller for medical history
+    //data for medical history pop up
     @FXML
     private TextField History_Hicno;
 
@@ -106,8 +106,6 @@ public class Controller implements Initializable  {
         //TODO
         dc = new DbConnection();
 
-
-
         LoadPatientData();
 
         loadPatientBox();
@@ -118,47 +116,60 @@ public class Controller implements Initializable  {
     @FXML //loads patient table
     private void LoadPatientData(){
 
-       try{
-
-           Connection conn = dc.Connect();
-
-           data = FXCollections.observableArrayList();
 
 
-           ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM csmith131db.Patient");
 
 
-           columnHICNO.setCellValueFactory(new PropertyValueFactory<>("HICNO"));
-           columnNAME.setCellValueFactory(new PropertyValueFactory<>("NAME"));
-           columnDOB.setCellValueFactory(new PropertyValueFactory<>("DOB"));
-           columnSEX.setCellValueFactory(new PropertyValueFactory<>("SEX"));
-           columnCCN_ID.setCellValueFactory(new PropertyValueFactory<>("CCN_ID"));
+        try{
 
-           while(rs.next()){
+            Connection conn = dc.Connect();
 
-               //get string from db
-
-              data.add(new Patient(
-                      rs.getString("HICNO"),
-                      rs.getString("NAME"),
-                      rs.getString("DOB"),
-                      rs.getString("SEX"),
-                      rs.getString("CCN_ID")));
-               tablePatient.setItems(data);
-           }
+            data = FXCollections.observableArrayList();
 
 
-          conn.close();
-           rs.close();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM csmith131db.Patient");
 
 
-       }catch (Exception e){
+            columnHICNO.setCellValueFactory(new PropertyValueFactory<>("HICNO"));
+            columnNAME.setCellValueFactory(new PropertyValueFactory<>("NAME"));
+            columnDOB.setCellValueFactory(new PropertyValueFactory<>("DOB"));
+            columnSEX.setCellValueFactory(new PropertyValueFactory<>("SEX"));
+            columnCCN_ID.setCellValueFactory(new PropertyValueFactory<>("CCN_ID"));
+
+            while(rs.next()){
+
+                //get string from db
+
+                data.add(new Patient(
+                        rs.getString("HICNO"),
+                        rs.getString("NAME"),
+                        rs.getString("DOB"),
+                        rs.getString("SEX"),
+                        rs.getString("CCN_ID")));
+                tablePatient.setItems(data);
+            }
+
+        //    resets textfields on loading the database table
+            patient_sex.setText("");
+            patient_birth.setText("");
+            patient_name.setText("");
+            hicno.setText("");
+            hospital_ccn.setText("");
+
+            resetMedical();
+
+            conn.close();
+            rs.close();
+
+
+        }catch (Exception e){
             System.err.print(e);
-       }
+        }
 
 
 
     }
+
 
     @FXML //function to  patient
     public void addPatient(ActionEvent event){
@@ -166,11 +177,11 @@ public class Controller implements Initializable  {
         if(hicno.getText().isEmpty() || patient_name.getText().isEmpty() || patient_birth.getText().isEmpty()
                 || patient_sex.getText().isEmpty() || hospital_ccn.getText().isEmpty()) {
 
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Validate Fields");
-                alert.setHeaderText(null);
-                alert.setContentText("Please Make sure all fields are filled in and HICNO is unique");
-                alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validate Fields");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Make sure all fields are filled in and HICNO is unique");
+            alert.showAndWait();
 
         } else {
 
@@ -193,8 +204,11 @@ public class Controller implements Initializable  {
 
                 conn.close();
 
-                LoadPatientData();
+                //function that automatically initialize new patient data to 0, but for right now user needs to upload data
+                //there is not automatic filling of data
+               // initializePatientMedicalHistory(hicno.getText());
 
+                 LoadPatientData();
 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Patient Information Added ");
@@ -213,9 +227,8 @@ public class Controller implements Initializable  {
 
 
 
-
+    @FXML
     public void MedicalHistory(ActionEvent event){
-
 
 
         try{
@@ -226,7 +239,6 @@ public class Controller implements Initializable  {
             window.setTitle("Medical History");
             window.setScene(new Scene(root));
             window.show();
-
 
 
         }catch (Exception e){
@@ -256,14 +268,15 @@ public class Controller implements Initializable  {
 
                 Connection conn = dc.Connect();
 
-                String query = "UPDATE Patient SET NAME = ?, DOB= ?, SEX  = ?, CCN_ID = ? WHERE HICNO = ?";
+                String query = "UPDATE Patient SET HICNO = ?, NAME = ?, DOB= ?, SEX  = ?, CCN_ID = ? WHERE HICNO = ?";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
-                preparedStatement.setString(1, patient_name.getText());
-                preparedStatement.setString(2, patient_birth.getText());
-                preparedStatement.setString(3, patient_sex.getText());
-                preparedStatement.setString(4, hospital_ccn.getText());
-                preparedStatement.setString(5, hicno.getText());
+                preparedStatement.setString(1, hicno.getText());
+                preparedStatement.setString(2, patient_name.getText());
+                preparedStatement.setString(3, patient_birth.getText());
+                preparedStatement.setString(4, patient_sex.getText());
+                preparedStatement.setString(5, hospital_ccn.getText());
+                preparedStatement.setString(6, hicno.getText());
 
 
                 preparedStatement.executeUpdate();
@@ -574,6 +587,76 @@ public class Controller implements Initializable  {
     }
 
 
+    @FXML
+    private void initializePatientMedicalHistory(String patient_hicno){
+
+        //IMMUNE SUPPRESSIVE MEDICINE
+        IMMUNE = 0;
+
+        //ANTIBIOTICS
+        ANTIBIOTICS = 0;
+
+        //MRSA
+        MRSA = 0;
+
+        //COPD
+        COPD = 0;
+
+        //CANCER
+        CANCER = 0;
+
+        //TUBERCULOSIS
+        TUBERCULOSIS = 0;
+
+        //DIABETES
+        DIABETES = 0;
+
+        //PREGNANT
+        PREGNANT = 0;
+
+        //HIV
+        HIV = 0;
+
+        //OBESITY
+        OBESITY = 0;
+
+        //A1C
+        A1C = 0;
+
+        try {
+
+            Connection conn = dc.Connect();
+
+            String query = "INSERT INTO Medical_History VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+            preparedStatement.setString(1, patient_hicno);
+            preparedStatement.setInt(2, IMMUNE);
+            preparedStatement.setInt(3, ANTIBIOTICS);
+            preparedStatement.setInt(4, MRSA);
+            preparedStatement.setInt(5, COPD);
+            preparedStatement.setInt(6, HIV);
+            preparedStatement.setInt(7, CANCER);
+            preparedStatement.setInt(8, TUBERCULOSIS);
+            preparedStatement.setInt(9, DIABETES);
+            preparedStatement.setInt(10, PREGNANT);
+            preparedStatement.setInt(11, OBESITY);
+            preparedStatement.setInt(12, A1C);
+
+
+            preparedStatement.execute();
+
+            conn.close();
+
+
+        } catch (Exception e) {
+            System.err.print(e);
+        }
+
+
+    }
+
 
 
     @FXML
@@ -641,6 +724,7 @@ public class Controller implements Initializable  {
             ResultSet rs = preparedStatement.executeQuery();
 
             while(rs.next()){
+
 
                 History_Hicno.setText(rs.getString("HICID"));
 
@@ -748,7 +832,7 @@ public class Controller implements Initializable  {
             }
 
 
-           getMedicalHistory(hicnonumber);
+            getMedicalHistory(hicnonumber);
 
 
             conn.close();
@@ -805,13 +889,17 @@ public class Controller implements Initializable  {
     }
 
 
-    public void getMedicalHistory(String hicno){
+
+
+
+
+    private void getMedicalHistory(String hicno){
 
         try{
 
 
-           Connection conn = dc.Connect();
-           String  query = "SELECT * FROM csmith131db.Medical_History WHERE HICID IN (\n" +
+            Connection conn = dc.Connect();
+            String  query = "SELECT * FROM csmith131db.Medical_History WHERE HICID IN (\n" +
                     "  SELECT HICID\n" +
                     "  FROM csmith131db.Patient\n" +
                     "  WHERE HICNO = ? AND HICID = ?)";
@@ -876,6 +964,35 @@ public class Controller implements Initializable  {
 
 
 
+
+    private void resetMedical(){
+
+        immunoLabel.setText(" ");
+
+        anitLabel.setText(" ");
+
+        mrsaLabel.setText(" ");
+
+        copdLabel.setText(" ");
+
+        hivLabel.setText(" ");
+
+        cancerLabel.setText(" ");
+
+        tuberLabel.setText(" ");
+
+        diabetesLabel.setText(" ");
+
+        pregnantLabel.setText(" ");
+
+        obesityLabel.setText(" ");
+
+        a1cLabel.setText(" ");
+
+
+
+
+    }
 
 
 

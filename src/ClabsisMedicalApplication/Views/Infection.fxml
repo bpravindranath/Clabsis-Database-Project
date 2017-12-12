@@ -5,10 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClabsisMedicalApplication.Controllers.RecordController">
     <children>
@@ -33,6 +35,13 @@
         </GridPane>
         <Button layoutX="470.0" layoutY="48.0" mnemonicParsing="false" onAction="#infectionAdd" text="ADD" />
         <Button layoutX="521.0" layoutY="48.0" mnemonicParsing="false" onAction="#infectionUpdate" text="UPDATE" />
-      <ComboBox fx:id="exisistingEncountersCombo" layoutX="275.0" layoutY="48.0" onAction="#fillInfectionForm" prefHeight="27.0" prefWidth="183.0" promptText="Existing Encounters..." />
+      <ComboBox fx:id="exisistingEncountersCombo" layoutX="275.0" layoutY="48.0" onAction="#fillInfectionForm" prefHeight="27.0" prefWidth="183.0" promptText="Existing Encounters...">
+         <tooltip>
+            <Tooltip text="Only Showing Patients with both a Procedure and Infection" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Tooltip>
+         </tooltip></ComboBox>
     </children>
 </AnchorPane>

@@ -5,10 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClabsisMedicalApplication.Controllers.RecordController">
     <children>
@@ -51,6 +53,13 @@
         <Button layoutX="429.0" layoutY="48.0" mnemonicParsing="false" onAction="#procedureAdd" text="ADD" />
         <Button layoutX="493.0" layoutY="48.0" mnemonicParsing="false" onAction="#procedureUpdate" text="UPDATE" />
           <TextField fx:id="ProcedureEncounterID" layoutX="16.0" layoutY="48.0" />
-      <ComboBox fx:id="exisistingPatientsComboBox" layoutX="240.0" layoutY="48.0" onAction="#fillProcedureForm" prefHeight="27.0" prefWidth="178.0" promptText="Existing Encounters..." />
+      <ComboBox fx:id="exisistingPatientsComboBox" layoutX="240.0" layoutY="48.0" onAction="#fillProcedureForm" prefHeight="27.0" prefWidth="178.0" promptText="Existing Encounters...">
+         <tooltip>
+            <Tooltip text="Showing All Current Patient Encounter IDs" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Tooltip>
+         </tooltip></ComboBox>
     </children>
 </AnchorPane>
