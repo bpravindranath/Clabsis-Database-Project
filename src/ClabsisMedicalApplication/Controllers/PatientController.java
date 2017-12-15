@@ -21,7 +21,7 @@ import ClabsisMedicalApplication.Model.DbConnection;
 import ClabsisMedicalApplication.TableViewClasses.Patient;
 
 
-public class Controller implements Initializable  {
+public class PatientController implements Initializable  {
 
 
     public javafx.scene.control.MenuBar menu;

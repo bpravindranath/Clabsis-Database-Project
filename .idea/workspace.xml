@@ -6,7 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SQL DATABASE Project/ClabsisMedicalApplication/Controllers/Controller.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ClabsisMedicalApplication/Controllers/Controller.java" afterPath="$PROJECT_DIR$/src/ClabsisMedicalApplication/Controllers/PatientController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SQL DATABASE Project/ClabsisMedicalApplication/Views/Medical_History.fxml" afterPath="$PROJECT_DIR$/out/production/SQL DATABASE Project/ClabsisMedicalApplication/Views/Medical_History.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SQL DATABASE Project/ClabsisMedicalApplication/Views/Patient.fxml" afterPath="$PROJECT_DIR$/out/production/SQL DATABASE Project/ClabsisMedicalApplication/Views/Patient.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ClabsisMedicalApplication/Views/Medical_History.fxml" afterPath="$PROJECT_DIR$/src/ClabsisMedicalApplication/Views/Medical_History.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ClabsisMedicalApplication/Views/Patient.fxml" afterPath="$PROJECT_DIR$/src/ClabsisMedicalApplication/Views/Patient.fxml" />
+    </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,7 +62,25 @@
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="csmith131db@triton.towson.edu" type="e3449647:DbNodeDescriptor" />
         <item name="csmith131db" type="e3449647:DbNodeDescriptor" />
+        <item name="Hospital" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="csmith131db@triton.towson.edu" type="e3449647:DbNodeDescriptor" />
+        <item name="csmith131db" type="e3449647:DbNodeDescriptor" />
         <item name="Infection" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="csmith131db@triton.towson.edu" type="e3449647:DbNodeDescriptor" />
+        <item name="csmith131db" type="e3449647:DbNodeDescriptor" />
+        <item name="Medical_History" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="csmith131db@triton.towson.edu" type="e3449647:DbNodeDescriptor" />
+        <item name="csmith131db" type="e3449647:DbNodeDescriptor" />
+        <item name="Patient" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
     <select />
@@ -102,12 +128,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClabsisMedicalApplication/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
               <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Patient" pinned="false" current-in-tab="true">
+        <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Patient">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console_1.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/15f382a7-9608-43da-a28c-9aa4cda63c15/console_1.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Medical_History" pinned="false" current-in-tab="false">
+        <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Medical_History">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -212,6 +266,7 @@
         <option value="src:table:/3423187a/9dc09132-36e8-4039-a393-22a8d4eb6202/bravindranathdb.SPJ" />
         <option value="$PROJECT_DIR$/src/ClabsisMedicalApplication/Controllers/RecordController.java" />
         <option value="$PROJECT_DIR$/src/ClabsisMedicalApplication/Controllers/Controller.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/15f382a7-9608-43da-a28c-9aa4cda63c15/console_1.sql" />
       </list>
     </option>
   </component>
@@ -246,9 +301,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="Scratches">
         <subPane>
           <expand>
@@ -277,6 +331,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -542,11 +597,12 @@
       <workItem from="1513021337667" duration="1266000" />
       <workItem from="1513025543056" duration="4579000" />
       <workItem from="1513106339850" duration="152000" />
+      <workItem from="1513351064659" duration="361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172498000" />
+    <option name="totallyTimeSpent" value="172859000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -559,6 +615,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1264" height="715" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -567,13 +624,15 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="106" y="123" width="1074" height="549" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327212" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.327212" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30523732" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26268414" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32978722" sideWeight="0.48453608" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -588,11 +647,9 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="106" y="123" width="1074" height="549" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17169374" sideWeight="0.5154639" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -658,14 +715,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://table:/5b1be2bf/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Patient" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/javafx-src.zip!/javafx/event/EventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/5b1be2bf/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Medical_History" />
     <entry file="file://$PROJECT_DIR$/src/sample/Alert_Patient.fxml" />
     <entry file="file://$PROJECT_DIR$/src/sample/Alert_Encounter.fxml" />
@@ -971,47 +1020,33 @@
         <state />
       </provider>
     </entry>
-    <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Patient">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Medical_History">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClabsisMedicalApplication/Controllers/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/ClabsisMedicalApplication/Controllers/PatientController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="726" column="16" lean-forward="false" selection-start-line="726" selection-start-column="16" selection-end-line="726" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addPatient#0;class#Controller#0" expanded="false" />
-            <element signature="method#MedicalHistory#0;class#Controller#0" expanded="false" />
-            <element signature="method#updatePatient#0;class#Controller#0" expanded="false" />
-            <element signature="method#medicalUpdate#0;class#Controller#0" expanded="false" />
-            <element signature="method#menuAnalysisClicks#0;class#Controller#0" expanded="false" />
-            <element signature="method#menuRECORDClicks#0;class#Controller#0" expanded="false" />
-            <element signature="method#loadPatientBox#0;class#Controller#0" expanded="false" />
-            <element signature="method#fillPatientForm#0;class#Controller#0" expanded="false" />
-            <element signature="method#tablePatientClick#0;class#Controller#0" expanded="false" />
-            <marker date="1513034722068" expanded="true" signature="3088:3121" ph="SELECT * FRO... Patient" />
-            <marker date="1513034722068" expanded="true" signature="5023:5061" ph="INSERT INTO Patient... " />
-            <marker date="1513034722068" expanded="true" signature="7425:7509" ph="UPDATE Patie... " />
-            <marker date="1513034722068" expanded="true" signature="11029:11245" ph="UPDATE Medic... " />
-            <marker date="1513034722068" expanded="true" signature="14936:14996" ph="INSERT INTO Medical_History... " />
-            <marker date="1513034722068" expanded="true" signature="16845:16905" ph="INSERT INTO Medical_History... " />
-            <marker date="1513034722068" expanded="true" signature="18879:18936" ph="SELECT * FRO... Medical_History" />
-            <marker date="1513034722068" expanded="true" signature="21046:21079" ph="SELECT * FRO... Patient" />
-            <marker date="1513034722068" expanded="true" signature="21518:21567" ph="SELECT * FRO... Patient" />
-            <marker date="1513034722068" expanded="true" signature="22725:22769" ph="SELECT * FRO... Patient" />
-            <marker date="1513034722068" expanded="true" signature="23436:23647" ph="SELECT * FRO... Medical_History" />
-            <marker date="1513034722068" expanded="true" signature="23523:23646" ph="SELECT HICID... Patient" />
+            <element signature="method#addPatient#0;class#PatientController#0" expanded="false" />
+            <element signature="method#MedicalHistory#0;class#PatientController#0" expanded="false" />
+            <element signature="method#updatePatient#0;class#PatientController#0" expanded="false" />
+            <element signature="method#medicalUpdate#0;class#PatientController#0" expanded="false" />
+            <element signature="method#menuAnalysisClicks#0;class#PatientController#0" expanded="false" />
+            <element signature="method#menuRECORDClicks#0;class#PatientController#0" expanded="false" />
+            <element signature="method#loadPatientBox#0;class#PatientController#0" expanded="false" />
+            <element signature="method#fillPatientForm#0;class#PatientController#0" expanded="false" />
+            <element signature="method#tablePatientClick#0;class#PatientController#0" expanded="false" />
+            <marker date="1513351110365" expanded="true" signature="3095:3128" ph="SELECT * FRO... Patient" />
+            <marker date="1513351110365" expanded="true" signature="5030:5068" ph="INSERT INTO Patient... " />
+            <marker date="1513351110365" expanded="true" signature="7432:7516" ph="UPDATE Patie... " />
+            <marker date="1513351110365" expanded="true" signature="11036:11252" ph="UPDATE Medic... " />
+            <marker date="1513351110365" expanded="true" signature="14943:15003" ph="INSERT INTO Medical_History... " />
+            <marker date="1513351110365" expanded="true" signature="16852:16912" ph="INSERT INTO Medical_History... " />
+            <marker date="1513351110365" expanded="true" signature="18886:18943" ph="SELECT * FRO... Medical_History" />
+            <marker date="1513351110365" expanded="true" signature="21053:21086" ph="SELECT * FRO... Patient" />
+            <marker date="1513351110365" expanded="true" signature="21525:21574" ph="SELECT * FRO... Patient" />
+            <marker date="1513351110365" expanded="true" signature="22732:22776" ph="SELECT * FRO... Patient" />
+            <marker date="1513351110365" expanded="true" signature="23443:23654" ph="SELECT * FRO... Medical_History" />
+            <marker date="1513351110365" expanded="true" signature="23530:23653" ph="SELECT HICID... Patient" />
           </folding>
         </state>
       </provider>
@@ -1048,6 +1083,36 @@
         <state relative-caret-position="315">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://src:table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Patient">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Medical_History">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/15f382a7-9608-43da-a28c-9aa4cda63c15/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3423187a/15f382a7-9608-43da-a28c-9aa4cda63c15/csmith131db.Patient">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="Patient_History" maxHeight="1000.0" maxWidth="1000.0" prefHeight="1000.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClabsisMedicalApplication.Controllers.Controller">
+<Pane fx:id="Patient_History" maxHeight="1000.0" maxWidth="1000.0" prefHeight="1000.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClabsisMedicalApplication.Controllers.PatientController">
    <children>
        <Label layoutX="318.0" layoutY="41.0" text="CLABSIS Patient Record">
          <font>

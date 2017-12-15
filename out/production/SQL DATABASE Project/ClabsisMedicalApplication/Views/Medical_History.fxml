@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Patient_History" prefHeight="457.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClabsisMedicalApplication.Controllers.Controller">
+<AnchorPane fx:id="Patient_History" prefHeight="457.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClabsisMedicalApplication.Controllers.PatientController">
    <children>
       <Label layoutX="220.0" layoutY="5.0" text="Medical History">
          <font>
